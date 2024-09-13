@@ -1,10 +1,9 @@
-# Exclude everything
-**/*
+
 
 # But include specific files
 !target/
 !Dockerfile
-!.dockerignore
+!pom.xml
 !src/
 
 
