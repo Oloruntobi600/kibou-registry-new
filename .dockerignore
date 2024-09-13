@@ -1,0 +1,5 @@
+# Ignore everything in target directory
+target/
+
+# But include target directories in main and test source directories
+!target/
