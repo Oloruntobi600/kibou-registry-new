@@ -1,7 +1,6 @@
 
 
 # But include specific files
-!target/
 !Dockerfile
 !pom.xml
 !src/
