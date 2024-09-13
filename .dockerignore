@@ -1,8 +1,12 @@
-# Ignore everything in target directory
-target/
+# Exclude everything
+**/*
 
-# But include target/*.jar
-!target/*.jar
+# But include specific files
+!target/
+!Dockerfile
+!.dockerignore
+!src/
+
 
 ### STS ###
 .apt_generated
