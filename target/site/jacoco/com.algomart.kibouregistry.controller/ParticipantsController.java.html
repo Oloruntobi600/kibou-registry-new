@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParticipantsController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">kibou-registry</a> &gt; <a href="index.source.html" class="el_package">com.algomart.kibouregistry.controller</a> &gt; <span class="el_source">ParticipantsController.java</span></div><h1>ParticipantsController.java</h1><pre class="source lang-java linenums">package com.algomart.kibouregistry.controller;
+
+import com.algomart.kibouregistry.entity.Participants;
+import com.algomart.kibouregistry.entity.response.APIResponse;
+import com.algomart.kibouregistry.exceptions.ResourceNotFoundException;
+import com.algomart.kibouregistry.services.ParticipantsService;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+<span class="fc" id="L14">@AllArgsConstructor</span>
+@RequestMapping(&quot;/api/participants&quot;)
+public class ParticipantsController {
+
+    private final ParticipantsService participantsService;
+
+    @PostMapping
+    public ResponseEntity&lt;APIResponse&gt; addParticipant(@Valid @RequestBody Participants participant) {
+        try {
+<span class="fc" id="L23">            APIResponse response = participantsService.addParticipant(participant);</span>
+
+<span class="fc" id="L25">            return new ResponseEntity&lt;&gt;(response, HttpStatus.CREATED);</span>
+<span class="nc" id="L26">        } catch (IllegalArgumentException ex) {</span>
+<span class="nc" id="L27">            return new ResponseEntity&lt;&gt;(new APIResponse(&quot;Failed&quot;, ex.getMessage(), participant.getParticipantId()), HttpStatus.BAD_REQUEST);</span>
+
+        }
+    }
+
+    @GetMapping
+    public ResponseEntity&lt;APIResponse&gt; getAllParticipants(
+            @RequestParam(defaultValue = &quot;10&quot;) int pageSize,
+            @RequestParam(defaultValue = &quot;0&quot;) int pageNumber) {
+        try {
+<span class="fc" id="L37">            APIResponse response = participantsService.getAllParticipants(pageSize, pageNumber);</span>
+<span class="fc" id="L38">            return new ResponseEntity&lt;&gt;(response, HttpStatus.OK);</span>
+<span class="nc" id="L39">        } catch (ResourceNotFoundException ex) {</span>
+<span class="nc" id="L40">            return new ResponseEntity&lt;&gt;(new APIResponse(&quot;Failed&quot;, ex.getMessage(), null), HttpStatus.NOT_FOUND);</span>
+        }
+    }
+
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;APIResponse&gt; getParticipantById(@PathVariable(&quot;id&quot;) Long id) {
+        try {
+<span class="fc" id="L47">            APIResponse response = participantsService.getParticipantById(id);</span>
+<span class="fc" id="L48">            return new ResponseEntity&lt;&gt;(response, HttpStatus.OK);</span>
+<span class="nc" id="L49">        } catch (ResourceNotFoundException ex) {</span>
+<span class="nc" id="L50">            return new ResponseEntity&lt;&gt;(new APIResponse(&quot;Failed&quot;, ex.getMessage(), null), HttpStatus.NOT_FOUND);</span>
+        }
+    }
+
+    @PutMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;APIResponse&gt; updateParticipant(@PathVariable(&quot;id&quot;) Long id,
+                                                         @Valid @RequestBody Participants participant) {
+        try {
+<span class="fc" id="L58">            APIResponse response = participantsService.updateParticipant(id, participant);</span>
+<span class="fc" id="L59">            return new ResponseEntity&lt;&gt;(response, HttpStatus.OK);</span>
+<span class="nc" id="L60">        } catch (ResourceNotFoundException ex) {</span>
+<span class="nc" id="L61">            return new ResponseEntity&lt;&gt;(new APIResponse(&quot;Failed&quot;, ex.getMessage(), null), HttpStatus.NOT_FOUND);</span>
+        }
+    }
+
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;APIResponse&gt; deleteParticipant(@PathVariable(&quot;id&quot;) Long id) {
+        try {
+<span class="fc" id="L68">            APIResponse response = participantsService.deleteParticipant(id);</span>
+<span class="fc" id="L69">            return new ResponseEntity&lt;&gt;(response, HttpStatus.OK);</span>
+<span class="nc" id="L70">        } catch (ResourceNotFoundException ex) {</span>
+<span class="nc" id="L71">            return new ResponseEntity&lt;&gt;(new APIResponse(&quot;Failed&quot;, ex.getMessage(), null), HttpStatus.NOT_FOUND);</span>
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

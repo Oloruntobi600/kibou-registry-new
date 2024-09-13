@@ -1,0 +1,9 @@
+com\algomart\kibouregistry\services\impl\DailyPaymentServiceImplTest.class
+com\algomart\kibouregistry\services\impl\ParticipantsServiceImplTest.class
+com\algomart\kibouregistry\controller\AttendanceReportControllerTest.class
+com\algomart\kibouregistry\KibouRegistryApplicationTests.class
+com\algomart\kibouregistry\controller\DailyPaymentControllerTest.class
+com\algomart\kibouregistry\controller\ParticipantsControllerTest.class
+com\algomart\kibouregistry\services\impl\AttendanceServiceImplTest.class
+com\algomart\kibouregistry\controller\AttendanceControllerTest.class
+com\algomart\kibouregistry\services\impl\AttendanceReportServiceImplTest.class

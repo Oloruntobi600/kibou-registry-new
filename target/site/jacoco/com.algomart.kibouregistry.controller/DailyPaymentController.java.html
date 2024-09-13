@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DailyPaymentController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">kibou-registry</a> &gt; <a href="index.source.html" class="el_package">com.algomart.kibouregistry.controller</a> &gt; <span class="el_source">DailyPaymentController.java</span></div><h1>DailyPaymentController.java</h1><pre class="source lang-java linenums">package com.algomart.kibouregistry.controller;
+
+
+import com.algomart.kibouregistry.enums.EventType;
+import com.algomart.kibouregistry.models.PaymentRequest;
+import com.algomart.kibouregistry.models.PaymentResponse;
+import com.algomart.kibouregistry.services.DailyPaymentsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+
+import java.util.Date;
+
+
+@RestController
+@RequestMapping(&quot;/api/payments&quot;)
+public class DailyPaymentController {
+
+    private final DailyPaymentsService dailyPaymentsService;
+
+    @Autowired
+<span class="fc" id="L27">    public DailyPaymentController(DailyPaymentsService dailyPaymentsService) {</span>
+<span class="fc" id="L28">        this.dailyPaymentsService = dailyPaymentsService;</span>
+<span class="fc" id="L29">    }</span>
+
+    @GetMapping
+    
+    public ResponseEntity&lt;Page&lt;PaymentResponse&gt;&gt; findAll(
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate,
+            @RequestParam(required = false) EventType eventType,
+            Pageable pageable) {
+<span class="fc" id="L38">        Page&lt;PaymentResponse&gt; payments = dailyPaymentsService.findAll(startDate, endDate, eventType, pageable);</span>
+<span class="fc" id="L39">        return ResponseEntity.ok(payments);</span>
+    }
+
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;PaymentResponse&gt; getPayment(@PathVariable Long id) {
+<span class="fc" id="L44">        PaymentResponse payment = dailyPaymentsService.findById(id);</span>
+<span class="fc" id="L45">        return new ResponseEntity&lt;&gt;(payment, HttpStatus.OK);</span>
+    }
+
+    @PostMapping
+    public ResponseEntity&lt;PaymentResponse&gt; addPayment(@RequestBody PaymentRequest paymentRequest) {
+<span class="fc" id="L50">        PaymentResponse payment = dailyPaymentsService.save(paymentRequest);</span>
+<span class="fc" id="L51">        return new ResponseEntity&lt;&gt;(payment, HttpStatus.CREATED);</span>
+    }
+
+    @PutMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;PaymentResponse&gt; updatePayment(@PathVariable Long id, @RequestBody PaymentRequest paymentRequest) {
+<span class="fc" id="L56">        PaymentResponse payment = dailyPaymentsService.update(id, paymentRequest);</span>
+<span class="fc" id="L57">        return new ResponseEntity&lt;&gt;(payment, HttpStatus.OK);</span>
+    }
+
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; deletePayment(@PathVariable Long id) {
+<span class="fc" id="L62">        dailyPaymentsService.deleteById(id);</span>
+<span class="fc" id="L63">        return ResponseEntity.ok().build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
