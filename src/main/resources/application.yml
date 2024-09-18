@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://db:5432/${POSTGRES_DB}}
-    username: ${SPRING_DATASOURCE_USERNAME:${POSTGRES_USER}}
-    password: ${SPRING_DATASOURCE_PASSWORD:${POSTGRES_PASSWORD}}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://postgres.railway.internal:5432/railway}
+      username: ${SPRING_DATASOURCE_USERNAME:postgres}
+      password: ${SPRING_DATASOURCE_PASSWORD:HGrDwAsZOQMYlQjvmDZXegXlhjselnAl}
 
 
   jpa:
