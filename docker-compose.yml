@@ -2,27 +2,29 @@ version: '3.8'
 
 services:
   kibou:
-    image: kibou-registery
-    build: .
+    image: kibou-registry
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "9000:9000"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres.railway.internal:5432/railway
-        SPRING_DATASOURCE_USERNAME: postgres
-        SPRING_DATASOURCE_PASSWORD: HGrDwAsZOQMYlQjvmDZXegXlhjselnAl
+      SPRING_DATASOURCE_URL: ${DATABASE_URL}
+      SPRING_DATASOURCE_USERNAME: ${PGUSER}
+      SPRING_DATASOURCE_PASSWORD: ${PGPASSWORD}
     depends_on:
       - db
 
   db:
     image: postgres:alpine
-      environment:
-        POSTGRES_DB: railway
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: HGrDwAsZOQMYlQjvmDZXegXlhjselnAl
-      ports:
-        - "5432:5432"
-      volumes:
-        - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
 volumes:
   postgres_data:
