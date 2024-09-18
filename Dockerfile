@@ -1,4 +1,10 @@
-# Use a base image with Java (or your preferred base image)
+# Build stage
+FROM maven:3.8.4-openjdk-11 AS build
+COPY . /app
+WORKDIR /app
+RUN mvn clean package -DskipTests
+
+
 FROM openjdk:17-jdk-slim
 
 # Set the working directory in the container
