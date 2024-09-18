@@ -1,8 +1,9 @@
 spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://${POSTGRES_HOST}:${PGPORT}/${POSTGRES_DB}}
-      username: ${SPRING_DATASOURCE_USERNAME:${POSTGRES_USER}}
-      password: ${SPRING_DATASOURCE_PASSWORD:${POSTGRES_PASSWORD}}
+    username: ${SPRING_DATASOURCE_USERNAME:${POSTGRES_USER}}
+    password: ${SPRING_DATASOURCE_PASSWORD:${POSTGRES_PASSWORD}}
+
 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
