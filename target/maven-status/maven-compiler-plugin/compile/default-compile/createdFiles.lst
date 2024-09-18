@@ -12,6 +12,7 @@ com\algomart\kibouregistry\entity\Participants.class
 com\algomart\kibouregistry\models\PaymentRequest.class
 com\algomart\kibouregistry\controller\AttendanceReportController.class
 com\algomart\kibouregistry\repository\AttendanceRepo.class
+com\algomart\kibouregistry\controller\HomeController.class
 com\algomart\kibouregistry\services\impl\ParticipantsServiceImpl.class
 com\algomart\kibouregistry\entity\DailyPayments.class
 com\algomart\kibouregistry\repository\ParticipantsRepo.class
