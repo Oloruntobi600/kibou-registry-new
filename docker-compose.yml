@@ -3,7 +3,7 @@ services:
   app:
     image: kibou-registry-app
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://dpg-csebrfe8ii6s7390h890-a/kibou_database
+      SPRING_DATASOURCE_URL: jdbc:postgresql://dpg-csebrfe8ii6s7390h890-a:5432/kibou_database
       SPRING_DATASOURCE_USERNAME: kibou_database_user
       SPRING_DATASOURCE_PASSWORD: JttlY3OdlupXJ4hWmqkwyqaaWiYP6vsV
     ports:
