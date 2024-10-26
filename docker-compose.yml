@@ -3,8 +3,8 @@ services:
   app:
     image: kibou-registry-app
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://dpg-crlc81rtq21c73ecbugg-a.oregon-postgres.render.com:5432/kibou_registry_oyax
-      SPRING_DATASOURCE_USERNAME: kibou_registry_oyax_user
-      SPRING_DATASOURCE_PASSWORD: B2NpXhkk3DwfpSjOdj8w1Vd6YkfLbLfx
+      SPRING_DATASOURCE_URL: jdbc:postgresql://kibou_database_user:JttlY3OdlupXJ4hWmqkwyqaaWiYP6vsV@dpg-csebrfe8ii6s7390h890-a/kibou_database
+      SPRING_DATASOURCE_USERNAME: kibou_database_user
+      SPRING_DATASOURCE_PASSWORD: JttlY3OdlupXJ4hWmqkwyqaaWiYP6vsV
     ports:
       - "8080:8080"

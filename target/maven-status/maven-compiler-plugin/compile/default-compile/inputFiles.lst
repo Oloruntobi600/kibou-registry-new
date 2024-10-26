@@ -5,6 +5,7 @@ C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregis
 C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\services\DailyPaymentsService.java
 C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\enums\Category.java
 C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\exceptions\GlobalExceptionHandler.java
+C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\controller\EventController.java
 C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\entity\Participants.java
 C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\services\impl\AttendanceReportServiceImpl.java
 C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\services\ParticipantsService.java
@@ -13,6 +14,7 @@ C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregis
 C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\services\AttendanceReportService.java
 C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\controller\AttendanceReportController.java
 C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\services\AttendanceService.java
+C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\services\impl\EventService.java
 C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\models\SearchCriteria.java
 C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\entity\Events.java
 C:\Users\bayod\IdeaProjects\kibou-registry\src\main\java\com\algomart\kibouregistry\repository\AttendanceRepo.java

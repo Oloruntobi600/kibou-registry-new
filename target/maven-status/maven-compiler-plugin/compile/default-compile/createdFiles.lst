@@ -13,6 +13,7 @@ com\algomart\kibouregistry\models\PaymentRequest.class
 com\algomart\kibouregistry\controller\AttendanceReportController.class
 com\algomart\kibouregistry\repository\AttendanceRepo.class
 com\algomart\kibouregistry\controller\HomeController.class
+com\algomart\kibouregistry\services\impl\EventService.class
 com\algomart\kibouregistry\services\impl\ParticipantsServiceImpl.class
 com\algomart\kibouregistry\entity\DailyPayments.class
 com\algomart\kibouregistry\repository\ParticipantsRepo.class
@@ -20,6 +21,7 @@ com\algomart\kibouregistry\services\impl\DailyPaymentServiceImpl.class
 com\algomart\kibouregistry\exceptions\GlobalExceptionHandler.class
 com\algomart\kibouregistry\exceptions\ResourceNotFoundException.class
 com\algomart\kibouregistry\entity\Attendance.class
+com\algomart\kibouregistry\controller\EventController.class
 com\algomart\kibouregistry\enums\AttendanceStatus.class
 com\algomart\kibouregistry\services\impl\AttendanceReportServiceImpl.class
 com\algomart\kibouregistry\util\GenericSpecification$1.class
