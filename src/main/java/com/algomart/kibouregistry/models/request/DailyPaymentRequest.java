@@ -1,6 +1,5 @@
-package com.algomart.kibouregistry.models;
+package com.algomart.kibouregistry.models.request;
 
-import com.algomart.kibouregistry.enums.EventType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -9,9 +8,9 @@ import java.util.Date;
 
 @Data
 @AllArgsConstructor
-public class PaymentResponse {
-    private Long id;
+public class DailyPaymentRequest {
     private Date date;
     private BigDecimal totalAmount;
-    private EventType eventType;
+    private  Long event;
+
 }

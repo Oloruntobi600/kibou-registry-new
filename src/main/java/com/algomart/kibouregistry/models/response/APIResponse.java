@@ -1,4 +1,4 @@
-package com.algomart.kibouregistry.entity.response;
+package com.algomart.kibouregistry.models.response;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +10,6 @@ import lombok.Setter;
 @Setter
 @Builder
 public class APIResponse {
-
     private String status;
     private String message;
     private Object data;
