@@ -19,12 +19,13 @@ public class ScheduledConfig {
     private EventsServiceImpl eventsService;
     @Scheduled(cron = "0 20 15 * * MON,TUE,WED")
     public void scheduleRegularEvents() {
-        log.info("Running Scheduler");
+        log.info("Running Scheduler for Regular Events Creation");
         EventsRequest regularEvent = new EventsRequest();
         regularEvent.setEventType(EventType.REGULAR);
         regularEvent.setVenue("Lagos Event Centre");
         regularEvent.setDate(LocalDate.now());
         eventsService.addEvents(regularEvent);
+        log.info("Regular event created: {}", regularEvent);
 
     }
 
