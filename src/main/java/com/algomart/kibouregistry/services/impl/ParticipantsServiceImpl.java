@@ -25,7 +25,8 @@ public class ParticipantsServiceImpl implements ParticipantsService {
     @Override
     public APIResponse addParticipant(Participants participant) {
         // Check if contactInfo is null
-        if (participant.getContactInfo() == null) {
+//        if (participant.getContactInfo() == null) {
+        if (participant.getContactInfo() == null || participant.getContactInfo().getEmail() == null) {
             return APIResponse.builder()
                     .status("Failed")
                     .message("Contact information is missing")
@@ -44,7 +45,8 @@ public class ParticipantsServiceImpl implements ParticipantsService {
         }
 
         // Check if event is null
-        if (participant.getEvent() == null) {
+//        if (participant.getEvent() == null) {
+        if (participant.getEvent() == null || participant.getEvent().getEventId() == null) {
             return APIResponse.builder()
                     .status("Failed")
                     .message("Event must be stated")
@@ -52,10 +54,12 @@ public class ParticipantsServiceImpl implements ParticipantsService {
         }
 
         // Save the event entity if it's not already saved
-        Events event = participant.getEvent();
-        if (event.getEventId() == null) {
-            event = eventsRepo.save(event);
-        }
+//        Events event = participant.getEvent();
+//        if (event.getEventId() == null) {
+//            event = eventsRepo.save(event);
+//        }
+        Events event = eventsRepo.findById(participant.getEvent().getEventId())
+                .orElseGet(() -> eventsRepo.save(participant.getEvent()));
 
         // Proceed to save the participant
         Participants newParticipant = new Participants();
