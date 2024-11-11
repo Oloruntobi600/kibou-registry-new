@@ -23,6 +23,8 @@ public class EventsController {
         this.eventsService = eventsService;
     }
 
+
+
     @PostMapping
     public ResponseEntity<EventsResponse> addEvents(@Valid @RequestBody EventsRequest events) {
         return new ResponseEntity<>(eventsService.addEvents(events),HttpStatus.CREATED);

@@ -17,7 +17,7 @@ import java.time.LocalDate;
 public class ScheduledConfig {
     @Autowired
     private EventsServiceImpl eventsService;
-    @Scheduled(cron = "0 50 13 * * MON,TUE,WED")
+    @Scheduled(cron = "0 20 15 * * MON,TUE,WED")
     public void scheduleRegularEvents() {
         log.info("Running Scheduler");
         EventsRequest regularEvent = new EventsRequest();
